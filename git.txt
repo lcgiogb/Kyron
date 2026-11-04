@@ -1,6 +1,6 @@
 1) git add .   //Adiciona todos os arquivos fora do git 
 2) git commit -m "cometario que vc deseja" //Salva as alterações e empacota para subir
-3) git push  // Manda para branch no git 
+3) git push -u origin main  // Manda para branch no git 
 
 === caso reclame de algo 
 
