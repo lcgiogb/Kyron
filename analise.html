@@ -5,67 +5,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kyron - Análise de Postura</title>
+    <title>KYSENSE - Análise de Postura</title>
 
     <link rel="stylesheet" href="CSS/analise.css">
 
     <!-- MediaPipe -->
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"
-        crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"
-        crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
-        crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-    <!-- Câmera -->
-    <video id="videoElement" autoplay playsinline></video>
+        <div class="app-container">
+        
+        <aside class="sidebar">
+            
+                <div class="brand">
+                <img src="IMG/logo.png" alt="KOYSENSE - Software de Postura" class="brand-logo">
+            </div>
 
-    <!-- Canvas onde a câmera e o esqueleto serão desenhados -->
-    <canvas id="outputCanvas"></canvas>
+            <h2 class="sidebar-title">Dicas de postura</h2>
 
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <span class="tip-icon">⏰</span>
+                    <p>Movimente-se a cada 20–30 minutos.</p>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">🧘</span>
+                    <p>Sente-se com pés apoiados e lombar sustentada.</p>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">🧍</span>
+                    <p>Mantenha orelhas, ombros, quadris e joelhos alinhados.</p>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">🧘‍♀️</span>
+                    <p>Alongue peito, ombros e pescoço.</p>
+                </div>
+                <div class="tip-card tip-card-wide">
+                    <span class="tip-icon">🏋️</span>
+                    <p>Fortaleça abdômen, costas e pelve.</p>
+                </div>
+            </div>
+        </aside>
 
-    <!-- PAINEL -->
-    <div class="hud">
+        <!-- ÁREA PRINCIPAL (CÂMERA + PAINEL) -->
+        <main class="main-content">
+            <!-- Câmera e Canvas -->
+            <video id="videoElement" autoplay playsinline></video>
+            <canvas id="outputCanvas"></canvas>
 
-        <h1>Kyron</h1>
+            <!-- PAINEL HUD DE CONTROLE -->
+            <div class="hud">
+                <h1 class="hud-title">Postura forte,<br>vida mais leve.</h1>
+                <h2 class="hud-subtitle">Análise de postura</h2>
 
-        <h2>Análise de postura</h2>
+                <button id="btnCalibrar">
+                    🎯 Calibrar postura
+                </button>
 
-        <img class="logo" src="/IMG/logo.png" alt="">
+                <div class="status">
+                    Hp Ergonomia: <span id="txtHp">91</span>%
+                </div>
 
-        <button id="btnCalibrar">
-            🎯 Calibrar Postura Ideal
-        </button>
+                <div class="hp-container">
+                    <div id="hp-bar" style="width: 91%;"></div>
+                </div>
 
-        <div class="status">
-            HP Ergonomia:
-            <span id="txtHp">100</span>%
-        </div>
+                <div id="statusPostura" class="status-pill warning">
+                    ⚠️ Postura inadequada
+                </div>
 
-        <div class="hp-container">
-            <div id="hp-bar"></div>
-        </div>
+                <div id="txtGameOver">
+                    GAME OVER: ALONGUE-SE!
+                </div>
 
-        <div id="statusPostura">
-            Aguardando calibração...
-        </div>
-
-        <div id="txtGameOver">
-            GAME OVER: ALONGUE-SE!
-        </div>
-
-        <button class="btn-voltar" onclick="window.location.href='index.html'">
-            ← Voltar para o início
-        </button>
-
+                <button class="btn-voltar" onclick="window.location.href='index.html'">
+                    ← Voltar para o início
+                </button>
+            </div>
+        </main>
     </div>
-
 
     <script src="JS/analise.js"></script>
 

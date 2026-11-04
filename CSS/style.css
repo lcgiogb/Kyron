@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -19,13 +20,17 @@ a {
     color: inherit;
 }
 
+
+
+/* CABEÇALHO */
+
 .header {
-    height: 65px;
+    min-height: 75px;
     background: #39005d;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 12%;
+    padding: 0 10%;
     color: white;
     position: relative;
     z-index: 10;
@@ -34,36 +39,52 @@ a {
 .logo {
     display: flex;
     align-items: center;
-    gap: 7px;
-    color: #8e20c2;
-    font-size: 10px;
-    letter-spacing: 4px;
+}
+
+.logo-img {
+    height: 45px; /* Ajuste a altura máxima conforme desejado */
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: 3px;
     font-weight: bold;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #b20fe2;
 }
 
 .logo-icon {
-    font-size: 30px;
+    font-size: 38px;
     font-weight: 900;
-    color: #7110a2;
+    color: #2563eb;
     line-height: 1;
 }
 
 .menu {
     display: flex;
-    gap: 27px;
-    font-size: 10px;
+    gap: 35px;
+    font-size: 14px;
 }
 
 .menu a {
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .menu a:hover {
     color: #e58cff;
 }
 
+/* INÍCIO */
+
 .hero {
-    min-height: 250px;
+    min-height: 430px;
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #39005d, #810ca8);
@@ -77,30 +98,30 @@ a {
 .hero-content {
     position: relative;
     z-index: 2;
-    padding: 30px 20px 60px;
+    padding: 50px 20px;
 }
 
 .hero h1 {
-    font-size: clamp(34px, 5vw, 51px);
+    font-size: clamp(38px, 5vw, 58px);
     line-height: 1.08;
-    font-weight: 500;
-    margin-bottom: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
 .hero p {
-    max-width: 480px;
+    max-width: 650px;
     margin: auto;
-    font-size: 15px;
-    line-height: 1.25;
+    font-size: 20px;
+    line-height: 1.5;
 }
 
 .botao-outline {
     display: inline-block;
-    margin-top: 20px;
-    padding: 8px 20px;
-    border: 1px solid white;
+    margin-top: 25px;
+    padding: 13px 28px;
+    border: 2px solid white;
     border-radius: 12px;
-    font-size: 13px;
+    font-size: 16px;
     transition: 0.3s;
 }
 
@@ -114,7 +135,7 @@ a {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px;
+    height: 150px;
 }
 
 .forma {
@@ -152,218 +173,198 @@ a {
     background: #6c078f;
 }
 
+/* PRODUTO */
+
 .produto {
-    min-height: 260px;
+    width: 100%;
+    min-height: 470px;
     background: #e7e7e7;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 55px;
-    padding: 38px 8%;
+    gap: 80px;
+    padding: 65px 8%;
 }
 
 .produto-texto {
-    width: 240px;
+    width: 440px;
+    min-height: 330px;
+    background: transparent; /* Removido o fundo branco */
+    padding: 20px 0;         /* Ajustado o espaçamento */
+    border-radius: 0;        /* Removidos os cantos arredondados */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: none;
 }
 
 .produto-texto h2 {
     color: #b20fe2;
-    font-size: 17px;
+    font-size: 38px;
     line-height: 1.12;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    font-weight: 800;
 }
 
 .linha-roxa {
-    height: 2px;
-    background: #bc19e5;
     width: 100%;
-    margin: 4px 0 8px;
+    height: 3px;
+    background: #bc19e5;
+    margin: 18px 0;
 }
 
 .produto-texto p {
-    font-size: 12px;
-    line-height: 1.2;
+    color: #555;
+    font-size: 20px;
+    line-height: 1.5;
 }
 
 .produto-imagem {
-    width: 255px;
-    height: 199px;
-    background: #ff3f45;
-    padding: 19px 17px;
+    width: 500px;
+    height: 330px;
+    overflow: hidden;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-.janela {
+.produto-imagem img {
     width: 100%;
     height: 100%;
-    background: white;
-    border: 5px solid #ddd;
-    border-radius: 4px;
-    overflow: hidden;
+    object-fit: cover;
+    display: block;
 }
 
-.barra-topo {
-    height: 27px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 0 5px;
-}
-
-.barra-topo span {
-    width: 9px;
-    height: 9px;
-    background: #d2c2d5;
-    border-radius: 2px;
-}
-
-.barra-topo .quadrado-vermelho {
-    width: 25px;
-    background: #fa4d59;
-}
-
-.tela {
-    height: 92px;
-    background: #ffd633;
-    margin: 0 5px;
-    position: relative;
-    overflow: hidden;
-}
-
-.pessoa {
-    position: absolute;
-    left: 43%;
-    bottom: 5px;
-    width: 50px;
-    height: 75px;
-}
-
-.cabeca {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: #a96d47;
-    margin: auto;
-}
-
-.corpo {
-    width: 32px;
-    height: 42px;
-    margin: -1px auto;
-    border-radius: 10px;
-    background: #bd28dc;
-}
-
-.braco {
-    position: absolute;
-    width: 40px;
-    height: 9px;
-    border-radius: 10px;
-    background: #bd28dc;
-    top: 35px;
-}
-
-.braco-esquerdo {
-    left: -23px;
-    transform: rotate(-30deg);
-}
-
-.braco-direito {
-    right: -25px;
-    transform: rotate(20deg);
-}
-
-.camera {
-    position: absolute;
-    right: 8px;
-    top: 30px;
-    width: 23px;
-    height: 17px;
-    background: #333;
-    border-radius: 4px;
-}
-
-.barra-baixo {
-    height: 24px;
-    margin: 5px;
-    border: 2px solid #ddd;
-}
+/* BENEFÍCIOS */
 
 .beneficios {
-    padding: 28px 20px 40px;
+    width: 100%;
+    min-height: 550px;
+    padding: 105px 6% 100px;
+    background: #8711ae;
     text-align: center;
 }
 
-.beneficios h2,
-.sobre h2 {
-    color: #555;
-    font-size: 19px;
-    margin-bottom: 28px;
+.beneficios h2 {
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 65px;
 }
 
 .beneficios-container {
+    max-width: 1250px;
+    margin: auto;
     display: flex;
     justify-content: center;
-    gap: 50px;
+    align-items: stretch;
+    gap: 42px;
 }
 
 .beneficio {
-    width: 85px;
+    flex: 1;
+    max-width: 400px;
+    min-height: 320px;
+    padding: 45px 30px;
+    background: #ffffff;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transition: 0.3s ease;
+}
+
+.beneficio:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
 }
 
 .icone {
-    width: 80px;
-    height: 80px;
-    background: #ededed;
-    border-radius: 6px;
+    width: 128px;
+    height: 128px;
+    background: #f0e1f8;
+    border-radius: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 42px;
-    margin-bottom: 7px;
+    font-size: 68px;
+    margin-bottom: 28px;
 }
 
 .beneficio p {
-    font-size: 12px;
-    line-height: 1.15;
+    color: #39005d;
+    font-size: 22px;
+    line-height: 1.5;
+    font-weight: 500;
+    text-align: center;
 }
 
+/* KOISENSE */
+
 .koisense {
-    min-height: 190px;
+    width: 100%;
+    min-height: 430px;
     background: #444243;
     color: white;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 30px 10%;
+    justify-content: space-evenly;
+    padding: 75px 8%;
+    gap: 100px;
+}
+
+.koisense-texto {
+    width: 550px;
 }
 
 .koisense-texto h2 {
-    font-size: 17px;
-    line-height: 1.2;
+    font-size: 42px;
+    line-height: 1.25;
+    font-weight: 800;
+    margin-bottom: 25px;
 }
 
 .koisense-texto p {
-    margin: 10px 0 14px;
-    font-size: 12px;
-    line-height: 1.3;
+    font-size: 23px;
+    line-height: 1.5;
+    margin-bottom: 30px;
 }
 
 .botao-verde {
     display: inline-block;
     background: #00bf55;
-    border-radius: 14px;
-    padding: 10px 15px;
-    font-size: 12px;
+    color: white;
+    padding: 19px 32px;
+    font-size: 19px;
+    border-radius: 16px;
     transition: 0.3s;
 }
 
 .botao-verde:hover {
-    background: #00a749;
+    background: #009f48;
+    transform: translateY(-4px);
 }
 
 .logo-koisense {
-    color: black;
+    width: 520px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+}
+
+.logo-koisense-img,
+.logo-koisense img {
+    display: block;
+    width: 400%;
+    max-width: 480px;
+    margin-left: -150px;
+    margin-top: -40px;
+    height: auto;
+    object-fit: contain;
 }
 
 .simbolo-postura {
@@ -400,126 +401,152 @@ a {
     background: #1743dd;
 }
 
-.logo-koisense h2 {
-    display: block;
-    font-size: 31px;
-    letter-spacing: -1px;
-}
-
-.logo-koisense span {
-    display: block;
-    font-size: 13px;
-}
+/* SOBRE NÓS */
 
 .sobre {
+    width: 100%;
+    min-height: 600px;
     background: #e7e7e7;
     text-align: center;
-    padding: 40px 30px 50px;
+    padding: 100px 5% 110px;
+}
+
+.sobre h2 {
+    font-size: 48px;
+    color: #444243;
+    font-weight: 800;
+    margin-bottom: 22px;
 }
 
 .subtitulo {
-    margin-top: -12px;
-    margin-bottom: 35px;
-    font-size: 16px;
+    color: #555;
+    font-size: 25px;
+    line-height: 1.5;
+    margin: 0 auto 75px;
 }
 
 .equipe {
+    max-width: 1550px;
+    margin: auto;
     display: flex;
     justify-content: center;
-    gap: 25px;
+    align-items: flex-start;
+    gap: 55px;
     flex-wrap: wrap;
 }
 
 .membro {
-    width: 75px;
+    width: 220px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.membro:hover {
+    transform: translateY(-12px);
 }
 
 .foto {
-    width: 67px;
-    height: 67px;
+    width: 210px;
+    height: 210px;
     border-radius: 50%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #ddd, #777);
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
+    overflow: hidden;
+    margin: 0 auto 22px;
+    border: 5px solid white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: #ddd;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.3s;
+}
+
+.membro:hover .foto img {
+    transform: scale(1.08);
 }
 
 .membro h3 {
-    font-size: 13px;
-    margin-top: 6px;
+    font-size: 27px;
+    color: #39005d;
+    margin-bottom: 10px;
+    font-weight: 800;
 }
 
 .membro p {
-    font-size: 11px;
-    line-height: 1.2;
-    margin-top: 2px;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #444;
 }
 
+/* CONTATO */
+
 .contato {
-    min-height: 310px;
+    min-height: 430px;
     background: #8e13ad;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 80px;
-    padding: 40px 8%;
+    gap: 100px;
+    padding: 65px 8%;
 }
 
 .contato-texto {
-    width: 200px;
+    width: 350px;
 }
 
 .contato-texto h2 {
-    font-size: 18px;
-    line-height: 1.15;
-}
-
-.linha-contato {
-    height: 2px;
-    width: 200px;
-    background: #c12ee8;
-    margin: 30px 0 10px;
-}
-
-.contato-texto p {
-    font-size: 16px;
+    font-size: 34px;
     line-height: 1.2;
 }
 
+.linha-contato {
+    height: 3px;
+    width: 100%;
+    background: #c12ee8;
+    margin: 30px 0 18px;
+}
+
+.contato-texto p {
+    font-size: 21px;
+    line-height: 1.5;
+}
+
 .formulario {
-    width: 208px;
+    width: 420px;
     background: rgba(85, 5, 106, 0.28);
-    padding: 20px 16px 15px;
+    padding: 35px 30px;
+    border-radius: 15px;
 }
 
 .formulario label {
     display: block;
-    font-size: 9px;
-    margin-bottom: 3px;
+    font-size: 15px;
+    margin-bottom: 7px;
 }
 
 .formulario input,
 .formulario textarea {
     width: 100%;
     border: 0;
-    border-radius: 6px;
+    border-radius: 8px;
     background: white;
-    margin-bottom: 13px;
-    padding: 8px;
+    margin-bottom: 18px;
+    padding: 13px;
     outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
 }
 
 .formulario input {
-    height: 33px;
+    height: 45px;
 }
 
 .formulario textarea {
-    height: 68px;
+    height: 110px;
     resize: vertical;
 }
 
@@ -529,10 +556,10 @@ a {
     background: transparent;
     color: white;
     border: 1px solid white;
-    border-radius: 5px;
-    padding: 6px 13px;
+    border-radius: 7px;
+    padding: 12px 22px;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 16px;
     transition: 0.3s;
 }
 
@@ -541,28 +568,30 @@ a {
     color: #8e13ad;
 }
 
+/* RODAPÉ */
+
 .footer {
-    min-height: 150px;
+    min-height: 200px;
     background: #58136f;
     color: white;
     position: relative;
-    padding: 25px 12%;
+    padding: 35px 12%;
 }
 
 .footer-logo {
     position: absolute;
     left: 12%;
-    top: 25px;
+    top: 35px;
 }
 
 .footer-links {
     border-left: 3px solid #c229e5;
-    padding-left: 7px;
+    padding-left: 12px;
     margin-left: 31%;
     display: flex;
     flex-direction: column;
-    gap: 7px;
-    font-size: 10px;
+    gap: 12px;
+    font-size: 14px;
 }
 
 .footer-links a:hover {
@@ -574,12 +603,12 @@ a {
     right: 12%;
     top: 95px;
     display: flex;
-    gap: 18px;
+    gap: 15px;
 }
 
 .redes a {
-    width: 31px;
-    height: 31px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     background: white;
     color: #ed4b9d;
@@ -587,52 +616,149 @@ a {
     justify-content: center;
     align-items: center;
     font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
 }
 
 .redes a:last-child {
     color: red;
 }
 
+.redes a:hover {
+    transform: scale(1.12);
+}
+
 .copyright {
     position: absolute;
     left: 12%;
     bottom: 20px;
-    font-size: 10px;
+    font-size: 13px;
 }
 
-@media (max-width: 700px) {
+/* RESPONSIVIDADE - TABLETS */
+
+@media (max-width: 850px) {
+
     .header {
-        padding: 0 5%;
+        padding: 15px 5%;
     }
 
     .menu {
-        gap: 10px;
-        font-size: 8px;
+        gap: 15px;
+        font-size: 12px;
     }
 
-    .produto,
-    .koisense,
-    .contato {
+    .produto {
         flex-direction: column;
         gap: 30px;
-        text-align: center;
+        padding: 55px 20px;
     }
 
     .produto-texto {
-        width: 255px;
+        width: 100%;
+        max-width: 500px;
     }
 
-    .contato-texto,
-    .linha-contato {
-        width: 208px;
+    .produto-imagem {
+        width: 100%;
+        max-width: 500px;
     }
 
-    .linha-contato {
-        margin: 15px auto 10px;
+    .beneficios {
+        padding: 65px 20px;
+    }
+
+    .beneficios h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
     }
 
     .beneficios-container {
-        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .beneficio {
+        width: 100%;
+        max-width: 400px;
+        min-height: 290px;
+    }
+
+    .koisense {
+        flex-direction: column;
+        text-align: center;
+        gap: 45px;
+        padding: 60px 25px;
+    }
+
+    .koisense-texto {
+        width: 100%;
+        max-width: 550px;
+    }
+
+    .koisense-texto h2 {
+        font-size: 32px;
+    }
+
+    .koisense-texto p {
+        font-size: 19px;
+    }
+
+    .logo-koisense {
+        width: 100%;
+        max-width: 380px;
+    }
+
+    .sobre {
+        padding: 70px 20px;
+    }
+
+    .sobre h2 {
+        font-size: 38px;
+    }
+
+    .subtitulo {
+        font-size: 20px;
+        margin-bottom: 50px;
+    }
+
+    .equipe {
+        gap: 35px;
+    }
+
+    .membro {
+        width: 170px;
+    }
+
+    .foto {
+        width: 160px;
+        height: 160px;
+    }
+
+    .membro h3 {
+        font-size: 23px;
+    }
+
+    .membro p {
+        font-size: 17px;
+    }
+
+    .contato {
+        flex-direction: column;
+        gap: 35px;
+        padding: 55px 20px;
+    }
+
+    .contato-texto {
+        width: 100%;
+        max-width: 420px;
+        text-align: center;
+    }
+
+    .formulario {
+        width: 100%;
+        max-width: 420px;
     }
 
     .footer {
@@ -645,7 +771,7 @@ a {
     }
 
     .footer-links {
-        margin-left: 45%;
+        margin-left: 40%;
     }
 
     .redes {
@@ -653,86 +779,149 @@ a {
     }
 }
 
+/* RESPONSIVIDADE - CELULARES */
+
 @media (max-width: 450px) {
-    .menu a:nth-child(3),
-    .menu a:nth-child(4) {
-        display: none;
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px 10px;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    .menu {
+        gap: 12px;
+        font-size: 10px;
+    }
+
+    .hero {
+        min-height: 350px;
     }
 
     .hero h1 {
         font-size: 33px;
     }
 
-    .beneficios-container {
-        gap: 10px;
+    .hero p {
+        font-size: 16px;
+    }
+
+    .produto-texto {
+        padding: 30px 25px;
+        min-height: 280px;
+    }
+
+    .produto-texto h2 {
+        font-size: 28px;
+    }
+
+    .produto-texto p {
+        font-size: 16px;
+    }
+
+    .produto-imagem {
+        height: 230px;
+    }
+
+    .beneficios h2 {
+        font-size: 27px;
     }
 
     .beneficio {
-        width: 78px;
+        min-height: 260px;
     }
 
     .icone {
-        width: 72px;
-        height: 72px;
+        width: 110px;
+        height: 110px;
+        font-size: 58px;
     }
-}
 
-.foto {
-    width: 67px;
-    height: 67px;
-    border-radius: 50%;
-    margin: auto;
-    overflow: hidden;
-    background: #ddd;
-}
+    .beneficio p {
+        font-size: 19px;
+    }
 
-.foto img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: 0.3s;
-}
+    .koisense-texto h2 {
+        font-size: 27px;
+    }
 
-.produto-imagem {
-    width: 320px;
-    height: 220px;
-    background: #ff3f45;
-    padding: 0;
-    overflow: hidden;
-}
+    .koisense-texto p {
+        font-size: 17px;
+    }
 
-.produto-imagem img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
+    .logo-koisense {
+        max-width: 300px;
+    }
 
-.redes {
-    display: flex;
-    gap: 12px;
-    margin-top: 25px;
-}
+    .botao-verde {
+        font-size: 15px;
+        padding: 14px 20px;
+    }
 
-.redes a {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background: white;
-    color: #ed4b9d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.3s;
-}
+    .sobre h2 {
+        font-size: 30px;
+    }
 
-.redes a:last-child {
-    color: red;
-}
+    .subtitulo {
+        font-size: 17px;
+    }
 
-.redes a:hover {
-    transform: scale(1.1);
+    .equipe {
+        gap: 30px;
+    }
+
+    .membro {
+        width: 140px;
+    }
+
+    .foto {
+        width: 125px;
+        height: 125px;
+    }
+
+    .membro h3 {
+        font-size: 20px;
+    }
+
+    .membro p {
+        font-size: 15px;
+    }
+
+    .contato-texto h2 {
+        font-size: 27px;
+    }
+
+    .contato-texto p {
+        font-size: 17px;
+    }
+
+    .footer {
+        min-height: 240px;
+        padding: 25px 8%;
+    }
+
+    .footer-logo {
+        position: static;
+        margin-bottom: 25px;
+    }
+
+    .footer-links {
+        margin-left: 0;
+        font-size: 12px;
+    }
+
+    .redes {
+        position: static;
+        margin-top: 25px;
+    }
+
+    .copyright {
+        position: static;
+        margin-top: 20px;
+        font-size: 11px;
+    }
 }
