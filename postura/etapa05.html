@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Etapa 5 - Máquina de Estados (Feedback Visual)</title>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <style>
+    #videoElement { display: none; }
+    canvas { border: 2px solid black; }
+    .painel { padding: 10px; font-family: Arial; font-weight: bold; width: 620px;}
+  </style>
+</head>
+<body>
+  <h1>Etapa 5: Feedback de Postura em Tempo Real</h1>
+  <div class="painel" id="statusPanel" style="background: #ccc;">
+    <button id="btnCalibrar">Calibrar</button>
+    <span id="txtStatus" style="margin-left: 20px;">Aguardando Calibração...</span>
+  </div>
+  
+  <video id="videoElement" autoplay playsinline></video>
+  <canvas id="outputCanvas" width="640" height="480"></canvas>
+
+  <script>
+    const videoElement = document.getElementById('videoElement');
+    const canvasElement = document.getElementById('outputCanvas');
+    const canvasCtx = canvasElement.getContext('2d');
+    
+    let isCalibrated = false;
+    let requestCalibration = false;
+    let baselineNeckLength = 0;
+    
+    // As 3 cores de feedback
+    let skeletonColor = '#00ffff'; 
+
+    document.getElementById('btnCalibrar').addEventListener('click', () => { requestCalibration = true; });
+
+    function calculateDistance(p1, p2) { return Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)); }
+    function getMidpoint(p1, p2) { return { x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2 }; }
+
+    function onResults(results) {
+      canvasCtx.save();
+      canvasCtx.translate(canvasElement.width, 0);
+      canvasCtx.scale(-1, 1);
+      canvasCtx.drawImage(results.image, 0, 0, canvasElement.width, canvasElement.height);
+
+      if (results.poseLandmarks) {
+        
+        const pLEar = { x: results.poseLandmarks[7].x * canvasElement.width, y: results.poseLandmarks[7].y * canvasElement.height };
+        const pREar = { x: results.poseLandmarks[8].x * canvasElement.width, y: results.poseLandmarks[8].y * canvasElement.height };
+        const pLShoulder = { x: results.poseLandmarks[11].x * canvasElement.width, y: results.poseLandmarks[11].y * canvasElement.height };
+        const pRShoulder = { x: results.poseLandmarks[12].x * canvasElement.width, y: results.poseLandmarks[12].y * canvasElement.height };
+
+        const currentNeckLength = calculateDistance(getMidpoint(pLEar, pREar), getMidpoint(pLShoulder, pRShoulder));
+
+        if (requestCalibration) {
+            baselineNeckLength = currentNeckLength;
+            isCalibrated = true;
+            requestCalibration = false;
+        }
+
+        // --- LÓGICA CONDICIONAL DE POSTURA ---
+        if (isCalibrated) {
+            // Razão: Divide o valor atual pelo calibrado
+            // Exemplo: Se o pescoço tem 100px na calibração, e agora tem 80px, a razão é 0.8 (80%)
+            const neckRatio = currentNeckLength / baselineNeckLength;
+            const txtStatus = document.getElementById('txtStatus');
+            const panel = document.getElementById('statusPanel');
+
+            if (neckRatio < 0.85) { 
+                // Caiu muito: Postura Crítica
+                skeletonColor = '#ff0000'; // Vermelho
+                txtStatus.innerText = "CRÍTICO! ALINHE SUAS COSTAS!";
+                panel.style.background = '#ffaaaa';
+            } else if (neckRatio < 0.92) {
+                // Caiu um pouco: Aviso
+                skeletonColor = '#ffff00'; // Amarelo
+                txtStatus.innerText = "ALERTA! POSTURA CAINDO!";
+                panel.style.background = '#ffffaa';
+            } else {
+                // Tudo normal
+                skeletonColor = '#00ff00'; // Verde
+                txtStatus.innerText = "POSTURA EXCELENTE";
+                panel.style.background = '#aaffaa';
+            }
+        }
+
+        // Desenha usando a cor dinâmica
+        drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS, {color: skeletonColor, lineWidth: 4});
+      }
+      canvasCtx.restore();
+    }
+
+    const pose = new Pose({locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/pose/${file}`});
+    pose.onResults(onResults);
+    const camera = new Camera(videoElement, { onFrame: async () => { await pose.send({image: videoElement}); }, width: 640, height: 480 });
+    camera.start();
+  </script>
+</body>
+</html>
