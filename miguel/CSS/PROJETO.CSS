@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #ffffff;
+}
+
+/* MENU */
+
+header {
+    background: #f59e0b;
+    height: 70px;
+}
+
+nav {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    color: #000000;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* PARTE PRINCIPAL */
+
+.principal {
+    min-height: 390px;
+    background: #ef0000;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    overflow: hidden;
+}
+
+.texto {
+    width: 43%;
+    color: white;
+}
+
+.texto h1 {
+    font-size: 38px;
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.texto p {
+    font-size: 17px;
+    line-height: 1.5;
+    max-width: 420px;
+    margin-bottom: 30px;
+}
+
+button {
+    background: #f5eeee;
+    border: none;
+    border-radius: 15px;
+    padding: 12px 22px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button span {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+button:hover {
+    transform: scale(1.03);
+}
+
+/* IMAGEM */
+
+.imagem {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem img {
+    width: 110%;
+    max-width: 650px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* SOBRE */
+
+.sobre {
+    height: 175px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 20px 40px;
+    background: #ffffff;
+}
+
+.pessoa {
+    font-size: 90px;
+}
+
+.sobre h2 {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.sobre p {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+/* RODAPÉ */
+
+footer {
+    background: #ffb238;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    nav a {
+        font-size: 16px;
+    }
+
+    .principal {
+        flex-direction: column;
+        padding-left: 5px;
+    }
+
+    .texto {
+        width: 100%;
+    }
+
+    .texto h1 {
+        font-size: 30px;
+    }
+
+    .imagem {
+        width: 100%;
+        height: 250px;
+    }
+
+    .sobre {
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
+
+#postura {
+    width: 150px;
+    height: 160px;
+    margin-right: 30px;
+}
+
+
+
+#principal {
+    margin: 0px;
+}

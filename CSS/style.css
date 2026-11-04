@@ -1,0 +1,738 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #555;
+    background: white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header {
+    height: 65px;
+    background: #39005d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12%;
+    color: white;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #8e20c2;
+    font-size: 10px;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.logo-icon {
+    font-size: 30px;
+    font-weight: 900;
+    color: #7110a2;
+    line-height: 1;
+}
+
+.menu {
+    display: flex;
+    gap: 27px;
+    font-size: 10px;
+}
+
+.menu a {
+    transition: 0.2s;
+}
+
+.menu a:hover {
+    color: #e58cff;
+}
+
+.hero {
+    min-height: 250px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #39005d, #810ca8);
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 30px 20px 60px;
+}
+
+.hero h1 {
+    font-size: clamp(34px, 5vw, 51px);
+    line-height: 1.08;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    max-width: 480px;
+    margin: auto;
+    font-size: 15px;
+    line-height: 1.25;
+}
+
+.botao-outline {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    border: 1px solid white;
+    border-radius: 12px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.botao-outline:hover {
+    background: white;
+    color: #65058c;
+}
+
+.formas {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+}
+
+.forma {
+    position: absolute;
+    bottom: -60px;
+    transform: rotate(45deg);
+    opacity: 0.55;
+}
+
+.forma1 {
+    width: 150px;
+    height: 150px;
+    left: 5%;
+    background: #a020cf;
+}
+
+.forma2 {
+    width: 180px;
+    height: 180px;
+    left: 25%;
+    background: #4d0570;
+}
+
+.forma3 {
+    width: 220px;
+    height: 220px;
+    right: 25%;
+    background: #9c1bc6;
+}
+
+.forma4 {
+    width: 170px;
+    height: 170px;
+    right: 3%;
+    background: #6c078f;
+}
+
+.produto {
+    min-height: 260px;
+    background: #e7e7e7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 55px;
+    padding: 38px 8%;
+}
+
+.produto-texto {
+    width: 240px;
+}
+
+.produto-texto h2 {
+    color: #b20fe2;
+    font-size: 17px;
+    line-height: 1.12;
+    letter-spacing: 0.5px;
+}
+
+.linha-roxa {
+    height: 2px;
+    background: #bc19e5;
+    width: 100%;
+    margin: 4px 0 8px;
+}
+
+.produto-texto p {
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.produto-imagem {
+    width: 255px;
+    height: 199px;
+    background: #ff3f45;
+    padding: 19px 17px;
+}
+
+.janela {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border: 5px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.barra-topo {
+    height: 27px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 5px;
+}
+
+.barra-topo span {
+    width: 9px;
+    height: 9px;
+    background: #d2c2d5;
+    border-radius: 2px;
+}
+
+.barra-topo .quadrado-vermelho {
+    width: 25px;
+    background: #fa4d59;
+}
+
+.tela {
+    height: 92px;
+    background: #ffd633;
+    margin: 0 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.pessoa {
+    position: absolute;
+    left: 43%;
+    bottom: 5px;
+    width: 50px;
+    height: 75px;
+}
+
+.cabeca {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #a96d47;
+    margin: auto;
+}
+
+.corpo {
+    width: 32px;
+    height: 42px;
+    margin: -1px auto;
+    border-radius: 10px;
+    background: #bd28dc;
+}
+
+.braco {
+    position: absolute;
+    width: 40px;
+    height: 9px;
+    border-radius: 10px;
+    background: #bd28dc;
+    top: 35px;
+}
+
+.braco-esquerdo {
+    left: -23px;
+    transform: rotate(-30deg);
+}
+
+.braco-direito {
+    right: -25px;
+    transform: rotate(20deg);
+}
+
+.camera {
+    position: absolute;
+    right: 8px;
+    top: 30px;
+    width: 23px;
+    height: 17px;
+    background: #333;
+    border-radius: 4px;
+}
+
+.barra-baixo {
+    height: 24px;
+    margin: 5px;
+    border: 2px solid #ddd;
+}
+
+.beneficios {
+    padding: 28px 20px 40px;
+    text-align: center;
+}
+
+.beneficios h2,
+.sobre h2 {
+    color: #555;
+    font-size: 19px;
+    margin-bottom: 28px;
+}
+
+.beneficios-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.beneficio {
+    width: 85px;
+}
+
+.icone {
+    width: 80px;
+    height: 80px;
+    background: #ededed;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    margin-bottom: 7px;
+}
+
+.beneficio p {
+    font-size: 12px;
+    line-height: 1.15;
+}
+
+.koisense {
+    min-height: 190px;
+    background: #444243;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 10%;
+}
+
+.koisense-texto h2 {
+    font-size: 17px;
+    line-height: 1.2;
+}
+
+.koisense-texto p {
+    margin: 10px 0 14px;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.botao-verde {
+    display: inline-block;
+    background: #00bf55;
+    border-radius: 14px;
+    padding: 10px 15px;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.botao-verde:hover {
+    background: #00a749;
+}
+
+.logo-koisense {
+    color: black;
+    text-align: center;
+}
+
+.simbolo-postura {
+    width: 200px;
+    height: 100px;
+    margin: auto;
+    position: relative;
+}
+
+.linha-vermelha {
+    position: absolute;
+    left: 13px;
+    height: 67px;
+    width: 5px;
+    background: #e22;
+    border-radius: 50%;
+}
+
+.linha-preta {
+    position: absolute;
+    left: 20px;
+    height: 67px;
+    width: 6px;
+    background: black;
+    border-radius: 50%;
+}
+
+.linha-azul {
+    position: absolute;
+    right: 2px;
+    top: 20px;
+    height: 25px;
+    width: 7px;
+    background: #1743dd;
+}
+
+.logo-koisense h2 {
+    display: block;
+    font-size: 31px;
+    letter-spacing: -1px;
+}
+
+.logo-koisense span {
+    display: block;
+    font-size: 13px;
+}
+
+.sobre {
+    background: #e7e7e7;
+    text-align: center;
+    padding: 40px 30px 50px;
+}
+
+.subtitulo {
+    margin-top: -12px;
+    margin-bottom: 35px;
+    font-size: 16px;
+}
+
+.equipe {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.membro {
+    width: 75px;
+}
+
+.foto {
+    width: 67px;
+    height: 67px;
+    border-radius: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ddd, #777);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.membro h3 {
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.membro p {
+    font-size: 11px;
+    line-height: 1.2;
+    margin-top: 2px;
+}
+
+.contato {
+    min-height: 310px;
+    background: #8e13ad;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 40px 8%;
+}
+
+.contato-texto {
+    width: 200px;
+}
+
+.contato-texto h2 {
+    font-size: 18px;
+    line-height: 1.15;
+}
+
+.linha-contato {
+    height: 2px;
+    width: 200px;
+    background: #c12ee8;
+    margin: 30px 0 10px;
+}
+
+.contato-texto p {
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.formulario {
+    width: 208px;
+    background: rgba(85, 5, 106, 0.28);
+    padding: 20px 16px 15px;
+}
+
+.formulario label {
+    display: block;
+    font-size: 9px;
+    margin-bottom: 3px;
+}
+
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    border: 0;
+    border-radius: 6px;
+    background: white;
+    margin-bottom: 13px;
+    padding: 8px;
+    outline: none;
+}
+
+.formulario input {
+    height: 33px;
+}
+
+.formulario textarea {
+    height: 68px;
+    resize: vertical;
+}
+
+.formulario button {
+    display: block;
+    margin-left: auto;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 6px 13px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.formulario button:hover {
+    background: white;
+    color: #8e13ad;
+}
+
+.footer {
+    min-height: 150px;
+    background: #58136f;
+    color: white;
+    position: relative;
+    padding: 25px 12%;
+}
+
+.footer-logo {
+    position: absolute;
+    left: 12%;
+    top: 25px;
+}
+
+.footer-links {
+    border-left: 3px solid #c229e5;
+    padding-left: 7px;
+    margin-left: 31%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 10px;
+}
+
+.footer-links a:hover {
+    color: #e58cff;
+}
+
+.redes {
+    position: absolute;
+    right: 12%;
+    top: 95px;
+    display: flex;
+    gap: 18px;
+}
+
+.redes a {
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    background: white;
+    color: #ed4b9d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.redes a:last-child {
+    color: red;
+}
+
+.copyright {
+    position: absolute;
+    left: 12%;
+    bottom: 20px;
+    font-size: 10px;
+}
+
+@media (max-width: 700px) {
+    .header {
+        padding: 0 5%;
+    }
+
+    .menu {
+        gap: 10px;
+        font-size: 8px;
+    }
+
+    .produto,
+    .koisense,
+    .contato {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .produto-texto {
+        width: 255px;
+    }
+
+    .contato-texto,
+    .linha-contato {
+        width: 208px;
+    }
+
+    .linha-contato {
+        margin: 15px auto 10px;
+    }
+
+    .beneficios-container {
+        gap: 20px;
+    }
+
+    .footer {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    .footer-logo {
+        left: 8%;
+    }
+
+    .footer-links {
+        margin-left: 45%;
+    }
+
+    .redes {
+        right: 8%;
+    }
+}
+
+@media (max-width: 450px) {
+    .menu a:nth-child(3),
+    .menu a:nth-child(4) {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 33px;
+    }
+
+    .beneficios-container {
+        gap: 10px;
+    }
+
+    .beneficio {
+        width: 78px;
+    }
+
+    .icone {
+        width: 72px;
+        height: 72px;
+    }
+}
+
+.foto {
+    width: 67px;
+    height: 67px;
+    border-radius: 50%;
+    margin: auto;
+    overflow: hidden;
+    background: #ddd;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.3s;
+}
+
+.produto-imagem {
+    width: 320px;
+    height: 220px;
+    background: #ff3f45;
+    padding: 0;
+    overflow: hidden;
+}
+
+.produto-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.redes {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.redes a {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: white;
+    color: #ed4b9d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.redes a:last-child {
+    color: red;
+}
+
+.redes a:hover {
+    transform: scale(1.1);
+}

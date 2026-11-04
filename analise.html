@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kyron - Análise de Postura</title>
+
+    <link rel="stylesheet" href="CSS/analise.css">
+
+    <!-- MediaPipe -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!-- Câmera -->
+    <video id="videoElement" autoplay playsinline></video>
+
+    <!-- Canvas onde a câmera e o esqueleto serão desenhados -->
+    <canvas id="outputCanvas"></canvas>
+
+
+    <!-- PAINEL -->
+    <div class="hud">
+
+        <h1>Kyron</h1>
+
+        <h2>Análise de postura</h2>
+
+        <img class="logo" src="/IMG/logo.png" alt="">
+
+        <button id="btnCalibrar">
+            🎯 Calibrar Postura Ideal
+        </button>
+
+        <div class="status">
+            HP Ergonomia:
+            <span id="txtHp">100</span>%
+        </div>
+
+        <div class="hp-container">
+            <div id="hp-bar"></div>
+        </div>
+
+        <div id="statusPostura">
+            Aguardando calibração...
+        </div>
+
+        <div id="txtGameOver">
+            GAME OVER: ALONGUE-SE!
+        </div>
+
+        <button class="btn-voltar" onclick="window.location.href='index.html'">
+            ← Voltar para o início
+        </button>
+
+    </div>
+
+
+    <script src="JS/analise.js"></script>
+
+</body>
+
+</html>

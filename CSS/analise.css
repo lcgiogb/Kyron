@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #050510;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#videoElement {
+    display: none;
+}
+
+#outputCanvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+.hud {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    z-index: 10;
+    width: 360px;
+    padding: 25px;
+    background: rgba(242, 218, 218, 0.95);
+    border-radius: 20px;
+    border: 3px solid #1595e7;
+    color: #050505;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+.hud h1 {
+    color: #081dbc;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    margin-bottom: 5px;
+}
+
+.hud h2 {
+    color: #050505;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+#btnCalibrar {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 12px;
+    background: #f59e0b;
+    color: #050505;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#btnCalibrar:hover {
+    background: #ffad42;
+    transform: scale(1.02);
+}
+
+.status {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#txtHp {
+    color: #1595e7;
+    font-size: 22px;
+}
+
+.hp-container {
+    width: 100%;
+    height: 22px;
+    margin-top: 8px;
+    border: 2px solid #050505;
+    border-radius: 15px;
+    overflow: hidden;
+    background: white;
+}
+
+#hp-bar {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #e30516,
+        #f59e0b,
+        #35c95c
+    );
+    transition: width 0.2s linear;
+}
+
+#statusPostura {
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 10px;
+    background: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+#txtGameOver {
+    display: none;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #e30516;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-voltar {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    border: 2px solid #1595e7;
+    border-radius: 10px;
+    background: transparent;
+    color: #050505;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-voltar:hover {
+    background: #1595e7;
+    color: white;
+}
+
+@media (max-width: 700px) {
+    .hud {
+        top: 10px;
+        left: 10px;
+        width: calc(100% - 20px);
+        padding: 18px;
+    }
+
+    .hud h1 {
+        font-size: 30px;
+    }
+
+    .hud h2 {
+        font-size: 18px;
+    }
+}
+
+.logo {
+    width: 230px;
+    height: 150px;
+}

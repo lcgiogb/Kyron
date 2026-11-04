@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Etapa 4 - Calibração e Geometria</title>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <style>
+    #videoElement { display: none; }
+    canvas { border: 2px solid black; }
+    .painel { padding: 10px; background: #eee; width: 620px; font-family: sans-serif; }
+  </style>
+</head>
+<body>
+  <h1>Etapa 4: Geometria e Calibração</h1>
+  <div class="painel">
+    <button id="btnCalibrar">Calibrar Postura Atual</button>
+    <p>Distância do Pescoço Calibrada: <span id="txtDistancia">Não calibrado</span></p>
+  </div>
+  
+  <video id="videoElement" autoplay playsinline></video>
+  <canvas id="outputCanvas" width="640" height="480"></canvas>
+
+  <script>
+    const videoElement = document.getElementById('videoElement');
+    const canvasElement = document.getElementById('outputCanvas');
+    const canvasCtx = canvasElement.getContext('2d');
+    
+    // Variáveis de Estado
+    let requestCalibration = false;
+    let baselineNeckLength = 0;
+
+    document.getElementById('btnCalibrar').addEventListener('click', () => {
+      requestCalibration = true;
+    });
+
+    // Função de Distância Euclidiana (Teorema de Pitágoras)
+    function calculateDistance(p1, p2) {
+      return Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
+    }
+
+    // Achar o ponto central entre dois pontos
+    function getMidpoint(p1, p2) {
+      return { x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2 };
+    }
+
+    function onResults(results) {
+      canvasCtx.save();
+      canvasCtx.translate(canvasElement.width, 0);
+      canvasCtx.scale(-1, 1);
+      canvasCtx.drawImage(results.image, 0, 0, canvasElement.width, canvasElement.height);
+
+      if (results.poseLandmarks) {
+        drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS, {color: '#00FF00'});
+        drawLandmarks(canvasCtx, results.poseLandmarks, {color: '#FF0000', lineWidth: 1, radius: 2});
+
+        // Pegando pontos cruciais (Orelhas e Ombros)
+        // Índices: 7 (Orelha Esq), 8 (Orelha Dir), 11 (Ombro Esq), 12 (Ombro Dir)
+        const pLEar = { x: results.poseLandmarks[7].x * canvasElement.width, y: results.poseLandmarks[7].y * canvasElement.height };
+        const pREar = { x: results.poseLandmarks[8].x * canvasElement.width, y: results.poseLandmarks[8].y * canvasElement.height };
+        const pLShoulder = { x: results.poseLandmarks[11].x * canvasElement.width, y: results.poseLandmarks[11].y * canvasElement.height };
+        const pRShoulder = { x: results.poseLandmarks[12].x * canvasElement.width, y: results.poseLandmarks[12].y * canvasElement.height };
+
+        const midEar = getMidpoint(pLEar, pREar);
+        const midShoulder = getMidpoint(pLShoulder, pRShoulder);
+
+        const currentNeckLength = calculateDistance(midEar, midShoulder);
+
+        // Se clicou no botão...
+        if (requestCalibration) {
+            baselineNeckLength = currentNeckLength;
+            document.getElementById('txtDistancia').innerText = Math.round(baselineNeckLength) + " pixels";
+            requestCalibration = false;
+        }
+      }
+      canvasCtx.restore();
+    }
+
+    const pose = new Pose({locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/pose/${file}`});
+    pose.onResults(onResults);
+    const camera = new Camera(videoElement, { onFrame: async () => { await pose.send({image: videoElement}); }, width: 640, height: 480 });
+    camera.start();
+  </script>
+</body>
+</html>
