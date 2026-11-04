@@ -1,0 +1,8 @@
+1) git add .   //Adiciona todos os arquivos fora do git 
+2) git commit -m "cometario que vc deseja" //Salva as alterações e empacota para subir
+3) git push  // Manda para branch no git 
+
+=== caso reclame de algo 
+
+extra) entre o passo 2 e 3 use 
+git remote add origin https://github.com/lcgiogb/Kyron.git
