@@ -304,16 +304,60 @@ a {
 
 /* KOISENSE */
 
+/* KOISENSE */
+
 .koisense {
     width: 100%;
-    min-height: 430px;
-    background: #444243;
-    color: white;
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    padding: 75px 8%;
-    gap: 100px;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.koisense-bg-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.koisense-btn {
+    position: absolute;
+    right: 12%; /* Ajusta a posição horizontal no lado direito */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%);
+    z-index: 2;
+    white-space: nowrap;
+}
+
+/* Ajustes de Responsividade para o Botão da Koisense */
+@media (max-width: 850px) {
+    .koisense-btn {
+        right: 8%;
+        font-size: 15px;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 450px) {
+    .koisense-btn {
+        right: 5%;
+        font-size: 11px;
+        padding: 8px 12px;
+        border-radius: 8px;
+    }
+}
+
+.koisense {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: 0; /* Remove os espaçamentos internos que criavam o fundo cinza */
+    background: transparent;
 }
 
 .koisense-texto {
