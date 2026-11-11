@@ -1,49 +1,44 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOY SENSE | Tecnologia e Postura</title>
-    <link rel="stylesheet" href="/CSS/segundosite.css">
-    <script src="/JS/segundosite.js" defer></script>
+    <link rel="stylesheet" href="./CSS/segundosite.css">
+    <script src="./JS/segundosite.js" defer></script>
 </head>
 <body>
 
     <header class="header">
         <a href="#inicio" class="logo">
-            <img src="IMG/logo.png" alt="Logo KOY SENSE">
+            <img src="./IMG/logo.png" id="logo1" alt="Logo KOY SENSE">
         </a>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
 
         <nav class="menu" id="menu">
-            <a href="#beneficios">Benefícios</a>
-            <a href="#produto">Produto</a>
-            <a href="#teste">Teste agora</a>
+            <a href="#beneficios">BENEFÍCIOS</a>
+            <a href="#produto">PRODUTO</a>
+            <a href="#teste">TESTE AGORA</a>
         </nav>
     </header>
 
     <main>
         <section class="hero" id="inicio">
-            <div>
-<img class="xx" src="IMG/telainicialsegundosite.png" alt="Pessoa com pontos luminosos para análise postural">
+            <div class="hero-imagem-container">
+                <img src="./IMG/telainicialsegundosite.png" alt="Pessoa com pontos luminosos para análise postural">
             </div>
-             
-            <div class="hero-bg"></div>
 
             <div class="hero-text">
                 <h1>Use o nosso produto e melhore sua saúde cada vez mais!</h1>
                 <p>Nosso produto orienta você para uma melhora da saúde e conforto.</p>
             </div>
-
-           
         </section>
 
         <section class="beneficios" id="beneficios">
             <article class="beneficio-card">
                 <div class="icone">
-                    <img src="IMG/coracao.png" alt="Coração">
+                    <img src="./IMG/coracao.png" alt="Coração">
                 </div>
                 <h2>Melhore sua saúde</h2>
                 <p>A tecnologia ajuda a identificar problemas de postura e incentiva hábitos mais saudáveis.</p>
@@ -51,7 +46,7 @@
 
             <article class="beneficio-card">
                 <div class="icone">
-                    <img src="IMG/cerebro.png" alt="Cérebro">
+                    <img src="./IMG/cerebro.png" alt="Cérebro">
                 </div>
                 <h2>Monitoramento inteligente</h2>
                 <p>A análise acompanha sua postura e permite perceber mudanças nos seus hábitos.</p>
@@ -59,7 +54,7 @@
 
             <article class="beneficio-card">
                 <div class="icone">
-                    <img src="IMG/medalha.png" alt="Medalha">
+                    <img src="./IMG/medalha.png" alt="Medalha">
                 </div>
                 <h2>Mais conforto e qualidade de vida</h2>
                 <p>Uma postura melhor pode contribuir para mais conforto durante as atividades do dia.</p>
@@ -74,7 +69,7 @@
             </div>
 
             <div class="produto-imagem">
-                <img src="/IMG/xxxxxxxxxx.png" alt="Pessoa utilizando um notebook">
+                <img src="./IMG/ICONE HOMEM PC.png" alt="Pessoa utilizando um notebook">
             </div>
         </section>
 
@@ -86,7 +81,7 @@
             </div>
 
             <div class="teste-imagem">
-                <img src="/IMG/IIIIIIIIIIII.png" alt="Tela do software de análise postural">
+                <img src="./IMG/IIIIIIIIIIII.png" alt="Tela do software de análise postural">
             </div>
         </section>
     </main>
@@ -96,8 +91,8 @@
         <div class="footer-conteudo">
 
             <div class="footer-texto">
-                <h2>Fale com a gente</h2>
-                <p>Tem alguma dúvida ou sugestão sobre o projeto? Entre em contato e envie sua mensagem.</p>
+                <h2 id="tituloContatos">Fale com a gente</h2>
+                <p id="textoContatos">Tem alguma dúvida ou sugestão sobre o projeto? Entre em contato e envie sua mensagem.</p>
             </div>
 
             <form class="formulario" id="formContato">
